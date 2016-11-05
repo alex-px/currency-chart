@@ -1,0 +1,14 @@
+{
+  "name": "homework15",
+  "homepage": "https://github.com/alex-px/tceh-python",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

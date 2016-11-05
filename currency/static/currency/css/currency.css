@@ -1,0 +1,12 @@
+body {
+    background-color: lightblue;
+}
+
+.date-container {
+    text-align: center;
+    padding: 5px;
+}
+
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,53 @@
+{% extends "currency/_base.html" %}
+
+{% load static %}
+
+{% block css %}
+    {% if debug %}
+      <link rel="stylesheet" href="{% static 'currency/css/currency.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/calendar.css' %}" />
+    {% else %}
+      <link rel="stylesheet" href="{% static 'build/css/bundle.min.css' %}" />
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="date-container">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" >
+    </form>
+  </div>
+  <div id="chart-container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+
+  </div>
+{% endblock %}
+
+{% block js %}
+
+    <script type="text/javascript">
+        var dates = {% autoescape off %}{{ dates }}{% endautoescape %} ;
+        var curr = {% autoescape off %}{{ currency }}{% endautoescape %} ;
+        var min_val = Math.min.apply(null, curr) - 0.5 ;
+        console.log(Math.min.apply(null, curr));
+        console.log(min_val);
+    </script>
+    {% if debug %}
+        <script type="text/javascript" src="{% static "js/calendar.js" %}"></script>
+        <script type="text/javascript" src="{% static "highcharts/highcharts.js" %}"></script>
+        <script type="text/javascript" src="{% static "currency/js/currency.js" %}"></script>
+    {% else %}
+        <script type="text/javascript" src="{%  static "build/js/bundle.min.js"%}"></script>
+    {% endif %}
+
+{% endblock %}

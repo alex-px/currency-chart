@@ -1,0 +1,1 @@
+#Simple currency chart for two weeks
