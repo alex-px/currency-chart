@@ -20,6 +20,6 @@ from currency.views import MyView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', MyView.as_view(), name='index')
+    url(r'^/$', MyView.as_view(), name='index')
 
 ]
