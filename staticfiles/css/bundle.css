@@ -55,3 +55,9 @@ body {
 h1 {
   text-align: center;
 }
+
+.refer {
+  text-align: center;
+  font-size: 0.8em;
+  padding: 15px;
+}
