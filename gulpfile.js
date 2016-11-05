@@ -23,27 +23,27 @@ var jsToConcat = [
 gulp.task('js', function() {
     return gulp.src(jsToConcat)
         .pipe(concatJs('bundle.js'))
-        .pipe(gulp.dest('./static/build/js/'));
+        .pipe(gulp.dest('./staticfiles/js/'));
 });
 
 gulp.task('jsmin', ['js'], function() {
-    return gulp.src('static/build/js/bundle.js')
+    return gulp.src('staticfiles/js/bundle.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./static/build/js/'));
+        .pipe(gulp.dest('./staticfiles/js/'));
 });
 
 gulp.task('concat-css', function() {
     return gulp.src(cssToConcat)
         .pipe(concatCss('bundle.css'))
-        .pipe(gulp.dest('./static/build/css/'));
+        .pipe(gulp.dest('./staticfiles/css/'));
 });
 
 gulp.task('css', ['concat-css'], function () {
-    return gulp.src('./static/build/css/bundle.css')
+    return gulp.src('./staticfiles/css/bundle.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./static/build/css/'));
+        .pipe(gulp.dest('./staticfiles/css/'));
 });
 
 gulp.task('build', ['jsmin', 'css']);

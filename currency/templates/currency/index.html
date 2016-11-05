@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="{% static 'currency/css/currency.css' %}" />
       <link rel="stylesheet" href="{% static 'css/calendar.css' %}" />
     {% else %}
-      <link rel="stylesheet" href="{% static 'build/css/bundle.min.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/bundle.min.css' %}" />
     {% endif %}
 {% endblock %}
 
@@ -47,7 +47,7 @@
         <script type="text/javascript" src="{% static "highcharts/highcharts.js" %}"></script>
         <script type="text/javascript" src="{% static "currency/js/currency.js" %}"></script>
     {% else %}
-        <script type="text/javascript" src="{%  static "build/js/bundle.min.js"%}"></script>
+        <script type="text/javascript" src="{% static "js/bundle.min.js" %}"></script>
     {% endif %}
 
 {% endblock %}
